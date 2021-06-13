@@ -1,0 +1,11 @@
+﻿{
+  "General": {
+    "WebAssemblyName": "JTSystem.Startup"
+  },
+  "ApplicationSettings": {
+    "Secret": "My Fake Secret"
+  },
+  "ConnectionStrings": {
+    "DefaultConnection": "My Fake Connection String"
+  }
+}
