@@ -37,9 +37,10 @@
             [FromQuery] GetTournamentsQuery command)
             => await this.Send(command);
 
-        [HttpGet(nameof(GetTournamentDetails))]
+        [HttpGet]
+        [Route(nameof(GetTournamentDetails) + PathSeparator + Id)]
         public async Task<ActionResult<TournamentDetailsOutputModel>> GetTournamentDetails(
-            [FromQuery] GetTournamentDetailsQuery command)
+            [FromRoute] GetTournamentDetailsQuery command)
             => await this.Send(command);
 
     }

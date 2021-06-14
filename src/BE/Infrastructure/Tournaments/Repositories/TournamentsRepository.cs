@@ -97,7 +97,12 @@
 
         public async Task<TournamentDetailsOutputModel> GetTournamentDetails(int id, CancellationToken cancellationToken)
         {
-            var tournament = await this.All().FirstOrDefaultAsync(x => x.Id == id);
+            var tournament = await this.All()
+                .Include(x => x.Categories)
+                .Include(x => x.Judokas)
+                .ThenInclude(x => x.Category)
+                .FirstOrDefaultAsync(x => x.Id == id);
+
             tournament.RaiseTournamentViewedEvent();
 
             var judokas = tournament

@@ -8,7 +8,10 @@ const initialData = [{
     name: "",
     category: {
         name: '',
-        gender: ''
+        gender: {
+            value: 0,
+            name: ""
+        }
     },
     wins: 0,
     loses: 0,

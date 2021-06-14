@@ -1,7 +1,9 @@
 import { React } from 'react';
 import { Card } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
-const Tournament = ({ name, winPrize, location, startDate, endDate }) => {
+
+const Tournament = ({ id, name, winPrize, location, startDate, endDate }) => {
     return (
         <Card style={{ width: '18rem' }}>
             <Card.Body>
@@ -14,7 +16,7 @@ const Tournament = ({ name, winPrize, location, startDate, endDate }) => {
                     <br />
                     Tournament end date: {endDate}
                 </Card.Text>
-                <Card.Link href="#">Details</Card.Link>
+                <Card.Link as={Link} to={{ pathname: '/tournament-details', query: { id: id } }}>Details</Card.Link>
             </Card.Body>
         </Card>
     )
